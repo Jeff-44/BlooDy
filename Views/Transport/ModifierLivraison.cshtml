@@ -1,0 +1,101 @@
+﻿@model BlooDyWeb.Models.DistributionModule.Transport
+
+@{
+    ViewData["Title"] = "Modifier Livraison";
+}
+
+<h1>Modifier Livraison</h1>
+
+@* <h4>ExamenMedical</h4> *@
+<hr />
+<form asp-action="ModifierLivraison">
+    <div class="container">
+        <div class="row text-center">
+        </div>
+        @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+        <div class="row">
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <input type="hidden" asp-for="Id" />
+                    <label asp-for="IdDistribution" class="control-label"></label>
+                    <select asp-for="IdDistribution" class="form-control" asp-items="ViewBag.DistributionList">
+                        <option>--Selectionnez la Distribution--</option>
+                    </select>
+                    <span asp-validation-for="IdDistribution" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="ModeTransport" class="control-label"></label>
+                    @* <select asp-for="ModeTransport" class="form-control" asp-items="ViewBag.ModeTransportList">
+                        <option>--Selectionnez le Mode de Transport--</option>
+                    </select> *@
+                    <input type="text" asp-for="ModeTransport" class="form-control" />
+                    <span asp-validation-for="ModeTransport" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="NumeroVehicule" class="control-label"></label>
+                    <input type="text" asp-for="NumeroVehicule" class="form-control" />
+                    <span asp-validation-for="NumeroVehicule" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="IdChauffeur" class="control-label"></label>
+                    <select asp-for="IdChauffeur" class="form-control" asp-items="ViewBag.ChauffeurList">
+                        <option>--Selectionnez le Code du Chauffeur--</option>
+                    </select>
+                    <span asp-validation-for="IdChauffeur" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="HeureDepart" class="control-label"></label>
+                    <input type="time" asp-for="HeureDepart" class="form-control" />
+                    <span asp-validation-for="HeureDepart" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="HeureArrivee" class="control-label"></label>
+                    <input type="time" asp-for="HeureArrivee" class="form-control" />
+                    <span asp-validation-for="HeureArrivee" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Statut" /> @Html.DisplayNameFor(model => model.Statut)
+                    </label>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="TemperatureTransport" class="control-label"></label>
+                    <input type="number" asp-for="TemperatureTransport" class="form-control" />
+                    <span asp-validation-for="TemperatureTransport" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="HeureCheckTemperature" class="control-label"></label>
+                    <input type="time" asp-for="HeureCheckTemperature" class="form-control" />
+                    <span asp-validation-for="HeureCheckTemperature" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="pb-4">
+                <input type="submit" value="Modifier" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-info">Annuler</a>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

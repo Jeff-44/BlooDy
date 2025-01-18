@@ -1,0 +1,84 @@
+﻿@model BlooDyWeb.Models.ExamenMedical
+
+@{
+    ViewData["Title"] = "Modifier Dossier";
+}
+
+<h1>Modifier Dossier</h1>
+
+@* <h4>ExamenMedical</h4> *@
+<hr />
+<form asp-action="ModifierDossier">
+    <div class="container">
+        <div class="row text-center">
+            @* <h1>Modifier Donateur</h1> *@
+        </div>
+        @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+        <div class="row">
+            <div class="col-12 col-md-6 pb-4">
+                <input asp-for="Id" type="hidden" />
+                <input asp-for="DonateurId" type="hidden" />
+                @* <input asp-for="Donateur.Personne.Id" type="hidden" /> *@
+                <div class="form-group">
+                    <label asp-for="DonateurId" class="control-label"></label>
+                    <select asp-for="DonateurId" class="form-control" disabled asp-items="ViewBag.DonateurList"></select>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Poids" class="control-label"></label>
+                    <input asp-for="Poids" class="form-control" />
+                    <span asp-validation-for="Poids" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Pouls" class="control-label"></label>
+                    <input asp-for="Pouls" class="form-control" />
+                    <span asp-validation-for="Pouls" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="TensionArterielleSystolique" class="control-label"></label>
+                    <input asp-for="TensionArterielleSystolique" class="form-control" />
+                    <span asp-validation-for="TensionArterielleSystolique" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="TensionArterielleDiastolique" class="control-label"></label>
+                    <input asp-for="TensionArterielleDiastolique" class="form-control" />
+                    <span asp-validation-for="TensionArterielleDiastolique" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Hemoglobine" class="control-label"></label>
+                    <input asp-for="Hemoglobine" class="form-control" />
+                    <span asp-validation-for="Hemoglobine" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="EtatDeSante" /> @Html.DisplayNameFor(model => model.EtatDeSante)
+                    </label>
+                </div>
+            </div>
+            <div class="pb-4">
+                <input type="submit" value="Modifier" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-info">Annuler</a>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,48 @@
+﻿@model BlooDyWeb.Models.TransfusionModule.Medecin 
+
+@{
+    ViewData["Title"] = "Details Medecin";
+}
+
+<h1>Details Medecin: <span class="display-0">@Model.Code</span></h1>
+
+<div>
+    @* <h4>ExamenMedical</h4> *@
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Personne.Prenom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Personne.Prenom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Personne.Nom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Personne.Nom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Personne.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Personne.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Personne.Telephone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Personne.Telephone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreeLe)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreeLe)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="ModifierMedecin" class="btn btn-danger" asp-route-id="@Model?.Id">Modifier</a>
+    <a asp-action="Index" class="btn btn-info">Medecins</a>
+</div>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Don>
+
+@{
+    ViewData["Title"] = "Dons";
+}
+
+<h1>Liste des Dons</h1>
+
+<p>
+    <a class="btn btn-danger float-end mb-3" asp-action="AjouterDon">Nouveau</a>
+</p>
+<table class="table table-hover">
+    <thead class="bg-info text-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonateurId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CollecteId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Volume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreeLe)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonateurId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CollecteId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Volume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreeLe)
+                </td>
+                <td>
+                    <a asp-action="ModifierDon" class="btn btn-outline-danger" asp-route-id="@item.Id">Modifier</a>
+                    <a asp-action="DetailsDon" class="btn btn-outline-info" asp-route-id="@item.Id">Details</a>
+                    @* <a asp-action="Delete" asp-route-id="@item.Id">Supprimer</a> *@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        let table = new DataTable('.table');
+    </script>
+}

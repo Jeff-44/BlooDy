@@ -1,0 +1,87 @@
+﻿@model Donateur
+
+@{
+    ViewData["Title"] = "Ajouter";
+}
+<form  asp-action="Ajouter" method="post">
+    <div class="container">
+        <div class="row text-center">
+            <h1>Nouveau Donateur</h1>
+        </div>
+        
+        <div class="row">
+            <div class="col-12 col-md-6 pb-4">
+                <label asp-for="@Model.Personne.CIN"></label>
+                <input asp-for="@Model.Personne.CIN" type="text" class="form-control" />
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <label asp-for="@Model.Personne.NIF"></label>
+                <input asp-for="@Model.Personne.NIF" type="text" class="form-control" />
+            </div>
+
+
+            <div class="col-12 col-md-6 pb-4">
+                <label asp-for="@Model.Personne.Nom"></label>
+                <input asp-for="@Model.Personne.Nom" type="text" class="form-control" />
+                <span asp-validation-for="Personne.Nom" class="text-danger"></span>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <label asp-for="@Model.Personne.Prenom"></label>
+                <input asp-for="@Model.Personne.Prenom" type="text" class="form-control" />
+                <span asp-validation-for="Personne.Prenom" class="text-danger"></span>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <label asp-for="@Model.Personne.Sexe"></label>
+                <input asp-for="@Model.Personne.Sexe" type="text" class="form-control" />
+                <span asp-validation-for="Personne.Sexe" class="text-danger"></span>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <label asp-for="@Model.GroupeSanguin"></label>
+                <input asp-for="@Model.GroupeSanguin" type="text" class="form-control" />
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <label asp-for="@Model.Personne.DateNaissance"></label>
+                <input asp-for="@Model.Personne.DateNaissance" type="text" class="form-control" />
+                <span asp-validation-for="Personne.DateNaissance" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 col-md-6 pb-4">
+                <label asp-for="@Model.Personne.StatutMatrimonial"></label>
+                <input asp-for="@Model.Personne.StatutMatrimonial" type="text" class="form-control" />
+            </div>
+
+            <div class="col-12 col-md-6 pb-4">
+                <label asp-for="@Model.Personne.Occupation"></label>
+                <input asp-for="@Model.Personne.Occupation" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="pb-4">
+                <label asp-for="@Model.Personne.Adresse"></label>
+                <input asp-for="@Model.Personne.Adresse" type="text" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6 pb-4">
+                <label asp-for="@Model.Personne.Telephone"></label>
+                <input asp-for="@Model.Personne.Telephone" type="text" class="form-control" />
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <label asp-for="@Model.Personne.Email"></label>
+                <input asp-for="@Model.Personne.Email" type="text" class="form-control" />
+            </div>
+            <div class="pb-4">
+                <button class="btn btn-danger" type="submit">Ajouter</button>
+                <a asp-action="Index" class="btn btn-info">Annuler</a>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

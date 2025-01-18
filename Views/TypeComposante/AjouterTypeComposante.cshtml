@@ -1,0 +1,51 @@
+﻿@model BlooDyWeb.Models.Stock.TypeComposante
+
+@{
+    ViewData["Title"] = "Créer Type Composante";
+}
+
+<h1>Créer Type Composante</h1>
+
+@* <h4>ExamenMedical</h4> *@
+<hr />
+<form asp-action="AjouterTypeComposante">
+    <div class="container">
+        <div class="row text-center">
+        </div>
+        @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+        <div class="row">
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Libelle" class="control-label"></label>
+                    <input type="text" asp-for="Libelle" class="form-control" />
+                    <span asp-validation-for="Libelle" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="DureeVie" class="control-label"></label>
+                    <input type="text" asp-for="DureeVie" class="form-control" />
+                    <span asp-validation-for="DureeVie" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Temperature" class="control-label"></label>
+                    <input asp-for="Temperature" type="number" class="form-control" />
+                    <span asp-validation-for="Temperature" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="pb-4">
+                <input type="submit" value="Ajouter" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-info">Annuler</a>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

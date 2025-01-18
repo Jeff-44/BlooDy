@@ -1,0 +1,84 @@
+﻿@model BlooDyWeb.Models.DistributionModule.InstitutionSante
+
+@{
+    ViewData["Title"] = "Créer Institution";
+}
+
+<h1>Créer Institution</h1>
+
+@* <h4>ExamenMedical</h4> *@
+<hr />
+<form asp-action="AjouterInstitution">
+    <div class="container">
+        <div class="row text-center">
+        </div>
+        @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+        <div class="row">
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Nom" class="control-label"></label>
+                    <input type="text" asp-for="Nom" class="form-control" />
+                    <span asp-validation-for="Nom" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Categorie" class="control-label"></label>
+                    <select asp-for="Categorie" class="form-control" asp-items="ViewBag.CategorieList">
+                        <option>--Selectionnez la Catégorie--</option>
+                    </select>
+                    <span asp-validation-for="Categorie" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Adresse" class="control-label"></label>
+                    <input type="text" asp-for="Adresse" class="form-control" />
+                    <span asp-validation-for="Adresse" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Telephone" class="control-label"></label>
+                    <input type="text" asp-for="Telephone" class="form-control" />
+                    <span asp-validation-for="Telephone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input type="text" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="IdVille" class="control-label"></label>
+                    <select asp-for="IdVille" disabled class="form-control" asp-items="ViewBag.VilleList">
+                        <option>--Selectionnez la Ville de Localisation--</option>
+                    </select>
+                    <span asp-validation-for="IdVille" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Statut" /> @Html.DisplayNameFor(model => model.Statut)
+                    </label>
+                </div>
+            </div>
+            
+            <div class="pb-4">
+                <input type="submit" value="Ajouter" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-info">Annuler</a>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

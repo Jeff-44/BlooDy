@@ -1,0 +1,46 @@
+﻿@model Centre
+
+@{
+    ViewData["Title"] = "Nouveau Centre";
+}
+
+<div class="container">
+    <h1>Nouveau Centre</h1>
+    <hr />
+    <form asp-action="AjouterCentre">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label asp-for="Code" class="control-label"></label>
+                    <input asp-for="Code" class="form-control" />
+                    <span asp-validation-for="Code" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label asp-for="NomCentre" class="control-label"></label>
+                    <input asp-for="NomCentre" class="form-control" />
+                    <span asp-validation-for="NomCentre" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="form-group">
+                    <label asp-for="TypeCentre" class="control-label"></label>
+                    <input asp-for="TypeCentre" class="form-control" />
+                    <span asp-validation-for="TypeCentre" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <input type="submit" value="Ajouter" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-info">Annuler</a>
+        </div>
+    </form>
+  
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

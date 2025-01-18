@@ -1,0 +1,111 @@
+﻿@model BlooDyWeb.Models.TransfusionModule.Medecin
+
+@{
+    ViewData["Title"] = "Créer Medecin";
+}
+
+<h1>Créer Medecin</h1>
+
+@* <h4>ExamenMedical</h4> *@
+<hr />
+<form asp-action="AjouterMedecin">
+    <div class="container">
+        <div class="row text-center">
+        </div>
+        @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+        <div class="row">
+           @*  <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="InstitutionSanteId" class="control-label"></label>
+                    <select asp-for="InstitutionSanteId" class="form-control" asp-items="ViewBag.InstitutionSanteList">
+                        <option>--Selectionnez l'Hopital de Référence--</option>
+                    </select>
+                    <span asp-validation-for="InstitutionSanteId" class="text-danger"></span>
+                </div>
+            </div> *@
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Personne.NIF" class="control-label"></label>
+                    <input type="text" asp-for="Personne.NIF" class="form-control" />
+                    <span asp-validation-for="Personne.NIF" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Personne.CIN" class="control-label"></label>
+                    <input type="text" asp-for="Personne.CIN" class="form-control" />
+                    <span asp-validation-for="Personne.CIN" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Personne.Nom" class="control-label"></label>
+                    <input type="text" asp-for="Personne.Nom" class="form-control" />
+                    <span asp-validation-for="Personne.Nom" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Personne.Prenom" class="control-label"></label>
+                    <input type="text" asp-for="Personne.Prenom" class="form-control" />
+                    <span asp-validation-for="Personne.Prenom" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Personne.Sexe" class="control-label"></label>
+                    <input type="text" asp-for="Personne.Sexe" class="form-control" />
+                    <span asp-validation-for="Personne.Sexe" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Personne.DateNaissance" class="control-label"></label>
+                    <input type="date" asp-for="Personne.DateNaissance" class="form-control" />
+                    <span asp-validation-for="Personne.DateNaissance" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Personne.Adresse" class="control-label"></label>
+                    <input type="text" asp-for="Personne.Adresse" class="form-control" />
+                    <span asp-validation-for="Personne.Adresse" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Personne.StatutMatrimonial" class="control-label"></label>
+                    <select asp-for="Personne.StatutMatrimonial" class="form-control" asp-items="ViewBag.StatutMatrimonialList">
+                        <option>--Selectionnez le Statut Matrimonial--</option>
+                    </select>
+                    <span asp-validation-for="Personne.StatutMatrimonial" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Personne.Telephone" class="control-label"></label>
+                    <input type="text" asp-for="Personne.Telephone" class="form-control" />
+                    <span asp-validation-for="Personne.Telephone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Personne.Email" class="control-label"></label>
+                    <input type="text" asp-for="Personne.Email" class="form-control" />
+                    <span asp-validation-for="Personne.Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="pb-4">
+                <input type="submit" value="Ajouter" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-info">Annuler</a>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,48 @@
+﻿@model BlooDyWeb.Models.Centre
+
+@{
+    ViewData["Title"] = "DetailsCentre";
+}
+
+<h1>Centre: @Model.Code</h1>
+
+<div>
+    @* <h4>Centre</h4> *@
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NomCentre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomCentre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TypeCentre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TypeCentre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonneResponsableId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PersonneResponsableId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VilleId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VilleId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreeLe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreeLe)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="ModifierCentre" class="btn btn-outline-danger" asp-route-id="@Model?.Id">Modifier</a> 
+    <a asp-action="Index" class="btn btn-info">Annuler</a>
+</div>

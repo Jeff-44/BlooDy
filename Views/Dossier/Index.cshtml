@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ExamenMedical>
+
+@{
+    ViewData["Title"] = "Dossiers";
+}
+
+<h1>Dossiers Médicaux</h1>
+
+<p>
+    <a asp-action="AjouterDossier" class="btn btn-danger float-end mb-3">Nouveau Dossier</a>
+</p>
+<table class="table table-hover">
+    <thead class="bg-info text-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Donateur.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Donateur.Personne.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Donateur.Personne.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Donateur.GroupeSanguin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poids)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreeLe)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donateur.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donateur.Personne.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donateur.Personne.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donateur.GroupeSanguin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poids)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreeLe)
+            </td>
+            <td>
+                <a asp-controller="Dossier" asp-action="ModifierDossier"  asp-route-id="@item.Id" class="btn btn-outline-danger">Modifier</a>
+                <a asp-action="DetailsDossier" asp-route-id="@item.Id" class="btn btn-outline-info">Détails</a>
+                 @* <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-warningr">Supprimer</a> *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        let table = new DataTable('.table');
+    </script>
+}

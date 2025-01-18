@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+
+@{
+    ViewData["Title"] = "Roles";
+}
+
+<h1>Roles / Permissions</h1>
+
+<p>
+    <a class="btn btn-danger float-end mb-3" asp-action="CreateRole">Nouveau +</a>
+</p>
+<table class="table table-hover">
+    <thead class="bg-info text-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-action="UpdateRole" class="btn btn-outline-danger" asp-route-id="@item.Id">Modifier</a>
+                    <a asp-action="DetailsRole" class="btn btn-outline-info" asp-route-id="@item.Id">Details</a>
+                    <form asp-action="DeleteRole" method="post" asp-route-id="@item.Id" class="d-inline-block">
+                        <input type="submit" value="Supprimer" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        let table = new DataTable('.table');
+    </script>
+}

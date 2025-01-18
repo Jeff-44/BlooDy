@@ -1,0 +1,54 @@
+﻿@model Don
+
+@{
+    ViewData["Title"] = "Details Don";
+}
+
+<h1>Details Don: <span class="display-0">@Model.Id</span></h1>
+
+<div>
+    @* <h4>ExamenMedical</h4> *@
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.donateur.Code)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.donateur.Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Collecte.Centre.Code)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Collecte.Centre.Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Volume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Volume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestePositifPourMaladie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestePositifPourMaladie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreeLe)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreeLe)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="ModifierDon" class="btn btn-danger" asp-route-id="@Model?.Id">Modifier</a>
+    <a asp-action="Index" class="btn btn-info">Dons</a>
+</div>

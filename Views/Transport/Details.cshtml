@@ -1,0 +1,96 @@
+﻿@model BlooDyWeb.Models.DistributionModule.Transport
+
+@{
+    ViewData["Title"] = "Details Livraison";
+}
+
+<h1>Details Livraison: <span class="display-0">@Model.Id</span></h1>
+
+<div>
+    @* <h4>ExamenMedical</h4> *@
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdDistribution)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdDistribution)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Distribution.ContactDestinataire.Nom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Distribution.ContactDestinataire.Nom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Distribution.ContactDestinataire.Telephone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Distribution.ContactDestinataire.Telephone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeroVehicule)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumeroVehicule)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ModeTransport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ModeTransport)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chauffeur.Personne.Prenom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chauffeur.Personne.Prenom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chauffeur.Personne.Nom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chauffeur.Personne.Nom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chauffeur.Personne.Telephone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chauffeur.Personne.Telephone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HeureDepart)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HeureDepart)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Statut)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Statut)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TemperatureTransport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TemperatureTransport)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HeureCheckTemperature)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HeureCheckTemperature)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreeLe)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreeLe)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="ModifierLivraison" class="btn btn-danger" asp-route-id="@Model?.Id">Modifier</a>
+    <a asp-action="Index" class="btn btn-info">Livraisons</a>
+</div>

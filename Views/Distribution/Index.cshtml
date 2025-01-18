@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BlooDyWeb.Models.DistributionModule.Distribution>
+
+@{
+    ViewData["Title"] = "Distributions";
+}
+
+<h1>Liste des Distributions</h1>
+
+<p>
+    <a class="btn btn-danger float-end mb-3" asp-action="AjouterDistribution">Nouveau + </a>
+</p>
+<table class="table table-hover">
+    <thead class="bg-info text-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdDemande)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Statut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateDistribution)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdDemande)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Statut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateDistribution)
+                </td>
+                <td>
+                    <a asp-action="ModifierDistribution" class="btn btn-outline-danger" asp-route-id="@item.Id">Modifier</a>
+                    <a asp-action="Details" class="btn btn-outline-info" asp-route-id="@item.Id">Details</a>
+                    @* <a asp-action="Delete" asp-route-id="@item.Id">Supprimer</a> *@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        let table = new DataTable('.table');
+    </script>
+}

@@ -1,0 +1,105 @@
+﻿@model BlooDyWeb.Models.TransfusionModule.Beneficiaire
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Gestion de Don de Sang</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .section-title {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .section-content {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .btn-custom {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Détails du Beneficiaire: @Model.Code</h1>
+
+        <!-- Info Personnel Section -->
+        <div class="section-title">Info Personnel</div>
+        <div class="section-content">
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Personne.CIN)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Personne.CIN)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Personne.NIF)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Personne.NIF)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Personne.Prenom)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Personne.Prenom)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Personne.Sexe)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Personne.Sexe)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Personne.DateNaissance)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Personne.DateNaissance)</dd>
+            </dl>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section-title">Contact</div>
+        <div class="section-content">
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Personne.Email)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Personne.Email)</dd>
+
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Personne.Telephone)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Personne.Telephone)</dd>
+            </dl>
+        </div>
+
+        <!-- Autres Infos Section -->
+        <div class="section-title">Autres Infos</div>
+        <div class="section-content">
+            <dl class="row">
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.GroupeSanguin)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.GroupeSanguin)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.HistoriqueMedical)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.HistoriqueMedical)</dd>
+                <dt class="col-sm-3">@Html.DisplayNameFor(model => model.CreeLe)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.CreeLe)</dd>
+            </dl>
+        </div>
+
+        <div class="section-content">
+            <div class="row">
+                <div class="mt-3 mb-4">
+                    <a asp-action="ModifierBeneficiaire" class="btn btn-danger btn-custom" asp-route-id="@Model?.Id">Modifier</a>
+                    <a asp-action="Index" class="btn btn-info btn-custom">Beneficiaires</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}

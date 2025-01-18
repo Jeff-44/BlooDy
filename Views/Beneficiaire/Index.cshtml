@@ -1,0 +1,71 @@
+﻿@model IEnumerable<BlooDyWeb.Models.TransfusionModule.Beneficiaire>
+
+@{
+    ViewData["Title"] = "Beneficiaires";
+}
+
+<h1>Liste des Beneficiaires</h1>
+
+<p>
+    <a class="btn btn-danger float-end mb-3" asp-action="AjouterBeneficiaire">Nouveau +</a>
+</p>
+<table class="table table-hover">
+    <thead class="bg-info text-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personne.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personne.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personne.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personne.Telephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupeSanguin)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Personne.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Personne.Prenom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Personne.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Personne.Telephone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupeSanguin)
+                </td>
+                <td>
+                    <a asp-action="ModifierBeneficiaire" class="btn btn-outline-danger" asp-route-id="@item.Id">Modifier</a>
+                    <a asp-action="Details" class="btn btn-outline-warning" asp-route-id="@item.Id">Details</a>
+                    @* <a asp-action="Delete" asp-route-id="@item.Id">Supprimer</a> *@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        let table = new DataTable('.table');
+    </script>
+}

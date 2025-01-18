@@ -1,0 +1,61 @@
+﻿@model BlooDyWeb.Models.DistributionModule.Distribution
+
+@{
+    ViewData["Title"] = "Créer Distribution";
+}
+
+<h1>Créer Distribution</h1>
+
+@* <h4>ExamenMedical</h4> *@
+<hr />
+<form asp-action="AjouterDistribution">
+    <div class="container">
+        <div class="row text-center">
+        </div>
+        @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+        <div class="row">
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="IdDemande" class="control-label"></label>
+                    <select asp-for="IdDemande" class="form-control" asp-items="ViewBag.DemandeList">
+                        <option>--Selectionnez la Demande--</option>
+                    </select>
+                    <span asp-validation-for="IdDemande" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="DateDistribution" class="control-label"></label>
+                    <input type="date" asp-for="DateDistribution" class="form-control" />
+                    <span asp-validation-for="DateDistribution" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Quantite" class="control-label"></label>
+                    <input asp-for="Quantite" type="number" class="form-control" />
+                    <span asp-validation-for="Quantite" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group form-check">
+                    <label asp-for="Statut" class="form-check-label">
+                        <input class="form-check-input" asp-for="Statut" /> @Html.DisplayNameFor(model => model.Statut)
+                    </label>
+                    <span asp-validation-for="Statut" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="pb-4">
+                <input type="submit" value="Ajouter" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-info">Annuler</a>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

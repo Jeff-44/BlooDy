@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Centre>
+
+@{
+    ViewData["Title"] = "Centres";
+}
+
+
+<h1>Liste des Centres</h1>
+
+<p>
+    <a class="btn btn-danger float-end mb-3" asp-action="AjouterCentre">Nouveau</a>
+</p>
+<table class="table table-hover">
+    <thead class="bg-info text-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomCentre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeCentre)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomCentre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeCentre)
+            </td>
+            <td>
+                <a asp-action="ModifierCentre" class="btn btn-outline-danger" asp-route-id="@item.Id">Modifier</a> 
+                <a asp-action="DetailsCentre" class="btn btn-outline-info" asp-route-id="@item.Id">Details</a>
+                @* <a asp-action="Delete" asp-route-id="@item.Id">Supprimer</a> *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        let table = new DataTable('.table');
+    </script>
+}

@@ -1,0 +1,98 @@
+﻿@model BlooDyWeb.Models.TransfusionModule.Transfusion
+
+@{
+    ViewData["Title"] = "Modifier Transfusion";
+}
+
+<h1>Modifier Transfusion</h1>
+
+@* <h4>ExamenMedical</h4> *@
+<hr />
+<form asp-action="ModifierTransfusion">
+    <div class="container">
+        <div class="row text-center">
+        </div>
+        @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+        <div class="row">
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <input type="hidden" asp-for="Id" />
+                    <label asp-for="GroupeSanguin" class="control-label"></label>
+                    @* <select asp-for="GroupeSanguin" class="form-control" asp-items="ViewBag.GroupeSanguinList">
+                        <option>--Selectionnez le GroupeSanguin--</option>
+                    </select> *@
+                    <input type="text" asp-for="GroupeSanguin" class="form-control" />
+                    <span asp-validation-for="GroupeSanguin" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="BeneficiaireId" class="control-label"></label>
+                    <select asp-for="BeneficiaireId" class="form-control" asp-items="ViewBag.BeneficiaireList">
+                        <option>--Selectionnez le Code du Beneficiaire--</option>
+                    </select>
+                    <span asp-validation-for="BeneficiaireId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="MedecinId" class="control-label"></label>
+                    <select asp-for="MedecinId" class="form-control" asp-items="ViewBag.MedecinList">
+                        <option>--Selectionnez le Code du Medecin--</option>
+                    </select>
+                    <span asp-validation-for="MedecinId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="ComposanteId" class="control-label"></label>
+                    <select asp-for="ComposanteId" class="form-control" asp-items="ViewBag.ComposanteList">
+                        <option>--Selectionnez le Code du Medecin--</option>
+                    </select>
+                    <span asp-validation-for="ComposanteId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Quantite" class="control-label"></label>
+                    <input type="number" asp-for="Quantite" class="form-control" />
+                    <span asp-validation-for="Quantite" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="DateTransfusion" class="control-label"></label>
+                    <input type="Date" asp-for="DateTransfusion" class="form-control" />
+                    <span asp-validation-for="DateTransfusion" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Statut" /> @Html.DisplayNameFor(model => model.Statut)
+                    </label>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Notes" class="control-label"></label>
+                    <textarea asp-for="Notes" class="form-control"> </textarea>
+                    <span asp-validation-for="Notes" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="pb-4">
+                <input type="submit" value="Modifier" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-info">Annuler</a>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

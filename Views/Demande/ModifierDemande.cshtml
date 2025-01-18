@@ -1,0 +1,70 @@
+﻿@model BlooDyWeb.Models.DistributionModule.Demande
+
+@{
+    ViewData["Title"] = "Modifier Demande";
+}
+
+<h1>Modifier Demande</h1>
+
+@* <h4>ExamenMedical</h4> *@
+<hr />
+<form asp-action="ModifierDemande">
+    <div class="container">
+        <div class="row text-center">
+        </div>
+        @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+        <div class="row">
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <input type="hidden" asp-for="Id" />
+                    <label asp-for="IdInstitutionSante" class="control-label"></label>
+                    <select asp-for="IdInstitutionSante" class="form-control" asp-items="ViewBag.InstitutionList">
+                        <option>--Selectionnez l'Institution--</option>
+                    </select>
+                    <span asp-validation-for="IdInstitutionSante" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="GroupeSanguin" class="control-label"></label>
+                    <input type="text" asp-for="GroupeSanguin" class="form-control" />
+                    <span asp-validation-for="GroupeSanguin" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="IdTypeComposante" class="control-label"></label>
+                    <select asp-for="IdTypeComposante" class="form-control" asp-items="ViewBag.TypeComposanteList">
+                        <option>--Selectionnez le Type de Composante de Sang--</option>
+                    </select>
+                    <span asp-validation-for="IdTypeComposante" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Quantite" class="control-label"></label>
+                    <input type="number" asp-for="Quantite" class="form-control" />
+                    <span asp-validation-for="Quantite" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Statut" /> @Html.DisplayNameFor(model => model.Statut)
+                    </label>
+                </div>
+            </div>
+            <div class="pb-4">
+                <input type="submit" value="Modifier" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-info">Annuler</a>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

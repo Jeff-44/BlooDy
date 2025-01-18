@@ -1,0 +1,75 @@
+﻿@using BlooDyWeb.Models.ViewModels
+@model RoleVM
+
+@{
+    ViewData["Title"] = "Details Role";
+}
+
+<h1>Role: <span class="display-0">@Model.Role.Name</span></h1>
+
+<div>
+    <h4>Members</h4>
+    <hr />
+    <table class="table table-active table-bordered table-striped table-hover">
+        <thead class="table-info">
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <form asp-action="RemoveUsersFromRole" method="post">
+                <input type="hidden" name="roleName" value="@Model.Role.Name" />
+                @foreach (var user in Model.Members)
+                {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>@user.Firstname @user.Lastname</td>
+                    <td>
+                        <input type="checkbox" name="userIds" value="@user.Id" />
+                    </td>
+                </tr>
+                }
+                <button class="btn btn-danger">Remove</button>
+            </form>
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <h4>Non Members</h4>
+    <hr />
+    <table class="table table-active table-bordered table-striped table-hover">
+        <thead class="table-info">
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <form asp-action="AssignRoleToUsers" method="post">
+                <input type="hidden" name="roleName" value="@Model.Role.Name" />
+                @foreach (var user in Model.NonMembers)
+                {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>@user.Firstname @user.Lastname</td>
+                    <td>
+                        <input type="checkbox" name="userIds" value="@user.Id" />
+                    </td>
+                </tr>
+                }
+                <button class="btn btn-success">Assign</button>
+            </form>
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="EditUser" class="btn btn-danger" asp-route-id="@Model?.Role.Id">Modifier</a>
+    <a asp-action="Index" class="btn btn-info">Roles</a>
+</div>

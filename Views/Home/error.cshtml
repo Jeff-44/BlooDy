@@ -1,0 +1,36 @@
+﻿@model ErrorViewModel
+
+
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+
+<h1>Erreurs</h1>
+
+
+<table class="table table-hover">
+    <thead class="bg-info text-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GetType())
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToString())
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        let table = new DataTable('.table');
+    </script>
+}

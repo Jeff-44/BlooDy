@@ -1,0 +1,52 @@
+﻿@model BlooDyWeb.Models.Stock.TypeComposante
+
+@{
+    ViewData["Title"] = "Modifier Type Composante";
+}
+
+<h1>Modifier Type Composante</h1>
+
+@* <h4>ExamenMedical</h4> *@
+<hr />
+<form asp-action="ModifierTypeComposante">
+    <div class="container">
+        <div class="row text-center">
+        </div>
+        @* <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+        <div class="row">
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <input type="hidden" asp-for="Id" />
+                    <label asp-for="Libelle" class="control-label"></label>
+                    <input asp-for="Libelle" type="text" class="form-control" />
+                    <span asp-validation-for="Libelle" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="DureeVie" class="control-label"></label>
+                    <input asp-for="DureeVie" type="number" class="form-control" />
+                    <span asp-validation-for="DureeVie" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 pb-4">
+                <div class="form-group">
+                    <label asp-for="Temperature" class="control-label"></label>
+                    <input asp-for="Temperature" type="number" class="form-control" />
+                    <span asp-validation-for="Temperature" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="pb-4">
+                <input type="submit" value="Modifier" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-info">Annuler</a>
+            </div>
+        </div>
+
+    </div>
+
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

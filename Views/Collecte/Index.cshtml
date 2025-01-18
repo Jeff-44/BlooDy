@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Collecte>
+
+@{
+    ViewData["Title"] = "Collectes";
+}
+
+<h1>Collectes</h1>
+
+<p>
+    <a asp-action="AjouterCollecte" class="btn btn-danger float-end mb-3">Nouveau +</a>
+</p>
+<table class="table table-hover">
+    <thead class="bg-info text-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCollecte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Centre.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organisateur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreeLe)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.DateCollecte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Centre.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Organisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreeLe)
+            </td>
+            <td>
+                <a asp-controller="Collecte" asp-action="ModifierCollecte" asp-route-id="@item.Id" class="btn btn-outline-danger">Modifier</a>
+                <a asp-action="DetailsCollecte" asp-route-id="@item.Id" class="btn btn-outline-info">Détails</a>
+                 @* <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-warningr">Supprimer</a> *@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        let table = new DataTable('.table');
+    </script>
+}
