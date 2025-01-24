@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Identity;
 using BlooDyWeb.Models.Security;
 using Microsoft.AspNetCore.Authorization;
 using BlooDyWeb.CustomAttribute;
+using Microsoft.AspNetCore.DataProtection;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -115,6 +116,11 @@ builder.Services.AddScoped<IMedecinService, MedecinService>();
 
 // HANDLE AUTHENTICATION / AUTHORIZATION
 
+//for deployement on servertest
+builder.Services.AddDataProtection()
+            .PersistKeysToFileSystem(new DirectoryInfo(@"C:\_SOLUTIONS\JDataProtection_keysKeys")) // Set a custom path
+            .SetApplicationName("BlooDy"); // Optional: Set a unique app name
+//////////////////////////////////////////////////////////////////////////////////////////////////
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -124,6 +130,9 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
